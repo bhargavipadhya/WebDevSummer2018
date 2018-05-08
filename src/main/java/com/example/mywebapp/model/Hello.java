@@ -1,4 +1,4 @@
-package model;
+package com.example.mywebapp.model;
 
 	
 	import javax.persistence.*;

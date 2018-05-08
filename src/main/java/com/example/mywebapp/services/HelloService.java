@@ -1,11 +1,11 @@
-package services;
+package com.example.mywebapp.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import model.Hello;
-import repositories.HelloRepository;
+import com.example.mywebapp.model.Hello;
+import com.example.mywebapp.repositories.HelloRepository;
 
 @RestController
 public class HelloService {
