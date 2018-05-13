@@ -30,11 +30,7 @@ function UserServiceClient() {
             }
         })
             .then(function(response){
-                if(response.bodyUsed) {
                     return response.json();
-                } else {
-                    return null;
-                }
             });
     }
 
@@ -48,7 +44,7 @@ function UserServiceClient() {
     function deleteUser(userId) {
         return fetch(self.url + '/' + userId, {
             method: 'delete'
-        })
+        });
     }
 
     function findAllUsers() {
