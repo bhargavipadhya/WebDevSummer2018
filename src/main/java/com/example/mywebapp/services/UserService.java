@@ -53,9 +53,7 @@ public class UserService {
 	
 	@GetMapping("/api/user")
 	public List<User> findAllUsers(){
-		
 		return (List<User>) repository.findAll();
-		
 	}
 	
 	@GetMapping("/api/user/{userId}")
