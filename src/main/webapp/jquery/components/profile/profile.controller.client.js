@@ -1,30 +1,38 @@
 (function() {
     $(init);
 
-    var $staticEmail;
-    var $firstName;
-    var $lastName;
+    var $usernameFld;
+    var $phoneFld;
+    var $emailFld;
+    var $roleFld;
+    var $dobFld;
     var $updateBtn;
+    var $logoutBtn;
     var userService = new UserServiceClient();
 
     function init() {
-        $staticEmail = $("#staticEmail");
-        $firstName = $("#firstName");
-        $lastName = $("#lastName");
-        $updateBtn = $("#updateBtn")
+        $usernameFld = $("#pusernameFld");
+        $phoneFld = $("#pphoneFld");
+        $emailFld = $("#pemailFld");
+        $roleFld = $("#proleFld");
+        $dobFld = $("#pdobFld");
+        $updateBtn = $("#pupdateBtn")
             .click(updateUser);
-
-        findUserById(12);
+        $logoutBtn = $("#logoutBtn")
+            .click(logoutUser);
+        findUserById(192);
     }
 
     function updateUser() {
         var user = {
-            firstName: $firstName.val(),
-            lastName: $lastName.val()
+            phone: $phoneFld.val(),
+            email: $emailFld.val(),
+            role: $roldfld.val(),
+            dob: $dobFld.val()
         };
 
         userService
-            .updateUser(12, user)
+            .updateUser(192, user)
             .then(success);
     }
 
@@ -44,8 +52,9 @@
 
     function renderUser(user) {
         console.log(user);
-        $staticEmail.val(user.username);
-        $firstName.val(user.firstName);
-        $lastName.val(user.lasteName);
+        $phoneFld.val(user.phone);
+        $emailFld.val(user.email);
+        $roleFld.val(user.role);
+        dobFld.val(user.dob);
     }
 })();

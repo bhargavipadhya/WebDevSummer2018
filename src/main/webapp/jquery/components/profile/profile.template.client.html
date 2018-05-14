@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"/>
-    <title>Insert title here</title>
+    <title>Profile Page</title>
     <script
             src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -13,49 +13,55 @@
     <script src="profile.controller.client.js"></script>
 
 </head>
-<body>
+<body><br>
 <div class="container">
-    <h1 id="title">Profile</h1>
+    <h1 id="title">Profile</h1><br>
 
     <form>
         <div class="form-group row">
-            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+            <label for="usernameFld" class="col-sm-2 col-form-label">Username</label>
             <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                <input type="text" readonly class="form-control-plaintext" id="usernameFld" placeholder="Username">
             </div>
         </div>
         <div class="form-group row">
-            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+            <label for="phoneFld" class="col-sm-2 col-form-label">Phone</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                <input type="tel" class="form-control" id="phoneFld" placeholder="Phone">
             </div>
         </div>
         <div class="form-group row">
-            <label for="firstName" class="col-sm-2 col-form-label">
-                First Name
-            </label>
+            <label for="emailFld" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
-                <input type="text"
-                       class="form-control"
-                       id="firstName"
-                       placeholder="first name">
+                <input type="text" class="form-control" id="emailFld" placeholder="email@example.com">
             </div>
         </div>
+
         <div class="form-group row">
-            <label for="lastName"
-                   class="col-sm-2 col-form-label">
-                Last Name
-            </label>
+            <label for="roleFld" class="col-sm-2 col-form-label">Role</label>
             <div class="col-sm-10">
-                <input type="text"
-                       class="form-control"
-                       id="lastName"
-                       placeholder="last">
+                <select id="roleFld" class="form-control">
+                    <option value="FACULTY">Faculty</option>
+                    <option value="STUDENT">Student</option>
+                </select>
             </div>
         </div>
-        <button id="updateBtn"
+
+        <div class="form-group row">
+            <label for="dobFld" class="col-sm-2 col-form-label">Date of Birth</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" id="dobFld" placeholder="DOB">
+            </div>
+        </div>
+
+        <br>
+        <button id="pupdateBtn"
                 type="button"
-                class="btn btn-primary btn-block">Update</button>
+                class="btn btn-success btn-block">Update</button>
+
+        <button id="logoutBtn"
+                type="button"
+                class="btn btn-block btn-danger">Logout</button>
     </form>
 
 </div>
