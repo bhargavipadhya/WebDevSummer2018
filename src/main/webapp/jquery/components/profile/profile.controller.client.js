@@ -7,24 +7,25 @@
     var $roleFld;
     var $dobFld;
     var $updateBtn;
-    var $logoutBtn;
+   // var $logoutBtn;
     var userService = new UserServiceClient();
 
     function init() {
-        $usernameFld = $("#pusernameFld");
-        $phoneFld = $("#pphoneFld");
-        $emailFld = $("#pemailFld");
-        $roleFld = $("#proleFld");
-        $dobFld = $("#pdobFld");
-        $updateBtn = $("#pupdateBtn")
+        $usernameFld = $("#usernameFld");
+        $phoneFld = $("#phoneFld");
+        $emailFld = $("#emailFld");
+        $roleFld = $("#roleFld");
+        $dobFld = $("#dobFld");
+        $updateBtn = $("#updateBtn")
             .click(updateUser);
-        $logoutBtn = $("#logoutBtn")
-            .click(logoutUser);
+        //$logoutBtn = $("#logoutBtn")
+          //  .click(logoutUser);
         findUserById(192);
     }
 
     function updateUser() {
         var user = {
+            username:$usernameFld.val(),
             phone: $phoneFld.val(),
             email: $emailFld.val(),
             role: $roldfld.val(),
@@ -52,9 +53,10 @@
 
     function renderUser(user) {
         console.log(user);
+        $usernameFld.val(user.username);
         $phoneFld.val(user.phone);
         $emailFld.val(user.email);
         $roleFld.val(user.role);
-        dobFld.val(user.dob);
+        $dobFld.val(user.dob);
     }
 })();

@@ -22,11 +22,16 @@ public class UserService {
 
 	@Autowired
 	UserRepository repository;
-	/*
+	
 	@PostMapping("/api/login")
-	public List<User> login(@RequestBody User user){
-		return (List<User>) repository.findUserByCredentials(user.getUsername(), user.getPassword());	
-	}*/
+	public User login(@RequestBody User user){
+		List<User> list = (List<User>) repository.findUserByCredentials(user.getUsername(), user.getPassword());
+		System.out.println(list.size());
+		if(list.isEmpty())
+			return null;
+		else
+			return list.get(0);
+	}
 	
 	@PutMapping("/api/user/{userId}")
 	public User updateUser(@PathVariable("userId") int userId, @RequestBody User newUser) {
@@ -49,6 +54,17 @@ public class UserService {
 	@PostMapping("/api/user")
 	public User createUser(@RequestBody User user){
 		return repository.save(user);	
+	}
+	
+	// Register User
+	@PostMapping("/api/register")
+	public User register(@RequestBody User user){
+		List<User> r = (List<User>) repository.findUserByUsername(user.getUsername());
+		if(r.isEmpty()) {
+			return repository.save(user);
+		}
+		else
+			return null;
 	}
 	
 	@GetMapping("/api/user")

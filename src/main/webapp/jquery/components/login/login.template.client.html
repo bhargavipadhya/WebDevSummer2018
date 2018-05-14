@@ -10,7 +10,7 @@
             crossorigin="anonymous"></script>
 
     <script src="../../services/user.service.client.js"></script>
-    <script src="profile.controller.client.js"></script>
+    <script src="login.controller.client.js"></script>
 
 </head>
 <body><br>
@@ -38,11 +38,13 @@
         <div>
         <button id="forgotpwdBtn"
                 type="button"
-                class="btn btn-link">Forgot Password?</button>
+                class="btn btn-link"
+                onclick="window.location.href='/jquery/components/login/login/forgot-password.html'">Forgot Password?</button>
 
-        <button id="signupBtnBtn"
+        <button id="registerBtn"
                 type="button"
-                class="btn btn-link float-right">Sign Up</button></div>
+                class="btn btn-link float-right"
+                onclick="window.location.href='/jquery/components/register/register.template.client.html'">Sign Up</button></div>
     </form>
 
 </div>
