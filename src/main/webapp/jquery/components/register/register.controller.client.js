@@ -29,10 +29,14 @@
 
         function success(response){
             if(response > 0){
-                alert("Account Created Successfully!");
+                $('#alertSuccess').css('display','block');
+                // alert("Account Created Successfully!");
             }
             else
-                alert("There was an error in creating your account. Try Again!");
+                $('#alertDanger').css('display','block');
+                 // alert("There was an error in creating your account. Try Again!");
         }
+
+
 
     }})();

@@ -84,8 +84,6 @@
             .then(findAllUsers);
     }
 
-    // render user::  // render user populate the row on edit
-
     //render users
     function renderUsers(users) {
         tbody.empty();
@@ -98,7 +96,6 @@
             clone.find('.wbdv-delete').click(deleteUser);
             clone.find('.wbdv-edit').click(editUser);
 
-            //console.log(clone);
             clone.find('.wbdv-username')
                 .html(user.username);
             clone.find('.wbdv-first-name')

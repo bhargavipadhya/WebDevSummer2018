@@ -32,7 +32,8 @@
                 window.location.href='/jquery/components/profile/profile.template.client.html?username='+$usernameFld.val();
             }
             else
-                alert("Invalid Username and Password");
+                $('#alertLoginDanger').css('display','block');
+                //alert("Invalid Username and Password");
         }
     }
 })();

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="login.style.client.css" rel="stylesheet"/>
     <title>Login Page</title>
     <script
             src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -14,8 +15,12 @@
 
 </head>
 <body><br>
-<div class="container">
+<div class="container-fluid">
     <h1 id="title">Login</h1><br>
+
+    <div class="alert alert-danger" id="alertLoginDanger" role="alert">
+        Sorry! Could not log in to your account. Please try again later.
+    </div>
 
     <form>
         <div class="form-group row">
