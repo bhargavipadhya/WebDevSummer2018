@@ -4,18 +4,22 @@ function UserServiceClient() {
     this.deleteUser = deleteUser;
     this.findUserById = findUserById;
     this.updateUser = updateUser;
+    this.updateProfile = updateProfile;
     this.register = register;
     this.login = login;
+    this.findUserByUsername = findUserByUsername;
     this.url =
         'http://localhost:8080/api/user';
     this.loginURL =
         'http://localhost:8080/api/login';
-    this.registerurl =
+    this.registerURL =
         'http://localhost:8080/api/register';
+    this.profileURL =
+        'http://localhost:8080/api/profile';
     var self = this;
 
+    // EXISTING USER LOGIN
     function login(user) {
-        console.log(user.username);
         return fetch(self.loginURL, {
             method: 'post',
             body: JSON.stringify(user),
@@ -25,8 +29,9 @@ function UserServiceClient() {
         });
     }
 
+    // REGISTER A NEW USER
     function register(user){
-        return fetch(self.registerurl, {
+        return fetch(self.registerURL, {
             method: 'post',
             body: JSON.stringify(user),
             headers: {
@@ -36,6 +41,21 @@ function UserServiceClient() {
 
     }
 
+    //UPDATE PROFILE
+    function updateProfile(user) {
+        return fetch(self.profileURL, {
+            method: 'put',
+            body: JSON.stringify(user),
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(function(response){
+                return response.json();
+            });
+    }
+
+    // UPDATE A USER (BY USER-ADMIN)
     function updateUser(userId, user) {
         return fetch(self.url + '/' + userId, {
             method: 'put',
@@ -49,19 +69,28 @@ function UserServiceClient() {
             });
     }
 
-    function findUserById(userId) {
-        return fetch(self.url + '/' + userId)
+    // FIND USER BY USERNAME
+    function findUserByUsername(value) {
+        return fetch(self.profileURL + '/' + value)
             .then(function(response){
                 return response.json();
             });
     }
+    // FIND A USER BY THEIR ID
+    function findUserById(userId) {
+        return fetch(self.url+"/"+userId).then(function (response) {
+            return response.json();
+        });
+    }
 
+    // DELETE A USER
     function deleteUser(userId) {
         return fetch(self.url + '/' + userId, {
             method: 'delete'
         });
     }
 
+    // FIND ALL THE USERS
     function findAllUsers() {
         return fetch(self.url)
             .then(function (response) {
@@ -69,6 +98,7 @@ function UserServiceClient() {
             });
     }
 
+    // CREATE A NEW USER
     function createUser(user) {
         return fetch(self.url, {
             method: 'post',

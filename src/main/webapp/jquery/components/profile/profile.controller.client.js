@@ -17,23 +17,30 @@
         $roleFld = $("#roleFld");
         $dobFld = $("#dobFld");
         $updateBtn = $("#updateBtn")
-            .click(updateUser);
+            .click(updateProfile);
         //$logoutBtn = $("#logoutBtn")
           //  .click(logoutUser);
-        findUserById(192);
+        var link = window.location.search.substring(1);
+        var pos = link.indexOf('=');
+        if (pos > 0) {
+            //var key = link.substring(0, pos);
+            var value = link.substring(pos + 1);
+        }
+        //console.log(value);
+        findUserByUsername(value);
     }
 
-    function updateUser() {
+    function updateProfile() {
         var user = {
             username:$usernameFld.val(),
             phone: $phoneFld.val(),
             email: $emailFld.val(),
-            role: $roldfld.val(),
+            role: $roleFld.val(),
             dob: $dobFld.val()
         };
 
         userService
-            .updateUser(192, user)
+            .updateProfile(user)
             .then(success);
     }
 
@@ -45,14 +52,14 @@
         }
     }
 
-    function findUserById(userId) {
+    function findUserByUsername(value) {
         userService
-            .findUserById(userId)
+            .findUserByUsername(value)
             .then(renderUser);
     }
 
     function renderUser(user) {
-        console.log(user);
+       // console.log(user);
         $usernameFld.val(user.username);
         $phoneFld.val(user.phone);
         $emailFld.val(user.email);

@@ -98,7 +98,7 @@
             clone.find('.wbdv-delete').click(deleteUser);
             clone.find('.wbdv-edit').click(editUser);
 
-            console.log(clone);
+            //console.log(clone);
             clone.find('.wbdv-username')
                 .html(user.username);
             clone.find('.wbdv-first-name')
@@ -113,31 +113,23 @@
 
     // finds the user by their User ID
     function findUserById(userId) {
-        userService
-            .findUserById(userId)
-            .then(renderUser);
+        return userService.findUserById(userId);
     }
 
     // populate the form
     function renderUser(user) {
-        console.log(user);
-        $usernameFld.val(user.username);
-        $firstNameFld.val(user.firstName);
-        $lastNameFld.val(user.lastName);
+        $tbody=$(".webdev-form");
+        $tbody.find("#usernameFld").val(user.username);
+        $tbody.find("#firstNameFld").val(user.firstName);
+        $tbody.find("#lastNameFld").val(user.lastName);
+        $tbody.find("#roleFld").val(user.role);
 
-        //$firstName.val(user.firstName);
-        //$lastName.val(user.lasteName);
     }
    // on click of the pencil, populate the form
-    function editUser() {
-        $usernameFld = $("#usernameFld");
-        $passwordFld = $("#passwordFld");
-        $firstNameFld = $("#firstNameFld");
-        $lastNameFld = $("#lastNameFld");
-        $roleFld = $("#roleFld");
-        $updateBtn = $("#updateBtn")
-            .click(updateUser);
-        findUserById(192);
+    function editUser(event) {
+        $button= $(event.currentTarget);
+        $userId=$button.parent().parent().parent().attr("id");
+        findUserById($userId).then(renderUser);
     }
 
 })();

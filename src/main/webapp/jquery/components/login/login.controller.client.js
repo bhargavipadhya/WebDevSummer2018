@@ -17,9 +17,7 @@
             username: $usernameFld.val(),
             password: $passwordFld.val()
         }
-
-        //userService.
-
+        //console.log($usernameFld.val());
         userService.login(user)
             .then(function(response){
                 return response.text()
@@ -31,7 +29,7 @@
 
         function success(response){
             if(response > 0){
-                window.location.href='/jquery/components/profile/profile.template.client.html';
+                window.location.href='/jquery/components/profile/profile.template.client.html?username='+$usernameFld.val();
             }
             else
                 alert("Invalid Username and Password");

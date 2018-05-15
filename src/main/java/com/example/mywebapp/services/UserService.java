@@ -23,6 +23,7 @@ public class UserService {
 	@Autowired
 	UserRepository repository;
 	
+	// LOGIN USER
 	@PostMapping("/api/login")
 	public User login(@RequestBody User user){
 		List<User> list = (List<User>) repository.findUserByCredentials(user.getUsername(), user.getPassword());
@@ -33,6 +34,7 @@ public class UserService {
 			return list.get(0);
 	}
 	
+	// UPDATE USER
 	@PutMapping("/api/user/{userId}")
 	public User updateUser(@PathVariable("userId") int userId, @RequestBody User newUser) {
 		Optional<User> data = repository.findById(userId);
@@ -46,17 +48,33 @@ public class UserService {
 			return null;
 	}
 	
+	// UPDATE PROFILE
+	@PutMapping("/api/profile")
+	public User updateProfile(@RequestBody User newProfile) {
+		List<User> l = (List<User>) repository.findUserByUsername(newProfile.getUsername());
+		User data=l.get(0);
+		data.setPhone(newProfile.getPhone());
+		data.setEmail(newProfile.getEmail());
+		data.setRole(newProfile.getRole());
+		data.setdOB(newProfile.getdOB());
+		repository.save(data);
+		return newProfile;
+	
+	}
+	
+	// DELETE USER
 	@DeleteMapping("/api/user/{userId}")
 	public void deleteUser(@PathVariable("userId") int id) {
 		repository.deleteById(id);
 	}
 	
+	// CREATE USER
 	@PostMapping("/api/user")
 	public User createUser(@RequestBody User user){
 		return repository.save(user);	
 	}
 	
-	// Register User
+	// REGISTER NEW USER
 	@PostMapping("/api/register")
 	public User register(@RequestBody User user){
 		List<User> r = (List<User>) repository.findUserByUsername(user.getUsername());
@@ -67,19 +85,34 @@ public class UserService {
 			return null;
 	}
 	
+	// FIND ALL THE USERS
 	@GetMapping("/api/user")
 	public List<User> findAllUsers(){
 		return (List<User>) repository.findAll();
 	}
 	
+	// FIND A USER BY THEIR ID
 	@GetMapping("/api/user/{userId}")
 	public User findUserById(@PathVariable("userId") int userId){
 		
 		Optional<User> data = repository.findById(userId);
 		if(data.isPresent()) {
+			//System.out.println(data.get().getUsername());
 		return data.get();
 	}
 		else
 			return null;
+	}
+
+
+	// FIND A USER BY THEIR USERNAME
+	@GetMapping("/api/profile/{value}")
+	public User findUserByUsername(@PathVariable("value") String val){
+		List<User> l = (List<User>) repository.findUserByUsername(val);
+		if(l.isEmpty()) {
+			return null;
+	}
+		else
+			return l.get(0);
 	}
 }

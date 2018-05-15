@@ -1,6 +1,6 @@
 package com.example.mywebapp.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,10 +18,9 @@ public class User {
 	private String lastName;
 	private String password;
 	private String role;
-
 	private String phone;
 	private String email;
-	private Date DOB;
+	private Date dOB;
 	
 	public int getId() {
 		return id;
@@ -59,7 +58,6 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
 	public String getPhone() {
 		return phone;
 	}
@@ -72,10 +70,10 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getDOB() {
-		return DOB;
+	public Date getdOB() {
+		return dOB;
 	}
-	public void setDOB(Date dOB) {
-		DOB = dOB;
+	public void setdOB(Date dOB) {
+		this.dOB = dOB;
 	}
 }
