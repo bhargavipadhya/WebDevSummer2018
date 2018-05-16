@@ -17,7 +17,7 @@
             username: $usernameFld.val(),
             password: $passwordFld.val()
         }
-        //console.log($usernameFld.val());
+
         userService.login(user)
             .then(function(response){
                 return response.text()
@@ -33,7 +33,7 @@
             }
             else
                 $('#alertLoginDanger').css('display','block');
-                //alert("Invalid Username and Password");
+
         }
     }
 })();

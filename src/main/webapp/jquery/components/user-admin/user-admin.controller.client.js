@@ -5,8 +5,13 @@
 
     var tbody;
     var template;
-    var $usernameFld; var $passwordFld; var $firstNameFld;
-    var $lastNameFld; var $roleFld; var $updateBtn;
+    var $usernameFld;
+    var $passwordFld;
+    var $firstNameFld;
+    var $lastNameFld;
+    var $roleFld;
+    var $updateBtn;
+    var $userId;
     var userService = new UserServiceClient()
 
     // main function
@@ -14,13 +19,13 @@
         tbody = $('tbody');
         template = $('.wbdv-template');
         $('#createUser').click(createUser);
-
+        $('#updateBtn').click(updateUser);
         findAllUsers();
     }
 
     //create users
     function createUser() {
-        //console.log('createUser');
+
 
         var username = $('#usernameFld').val();
         var password = $('#passwordFld').val();
@@ -48,28 +53,22 @@
             .then(renderUsers);
     }
 
-    //find user by id
-
     // update user
     function updateUser() {
+        $tbody=$(".webdev-form");
         var user = {
-            firstName: $firstNameFld.val(),
-            lastName: $lastNameFld.val()
+           firstName: $tbody.find("#firstNameFld").val(),
+        lastName: $tbody.find("#lastNameFld").val(),
+        role: $tbody.find("#roleFld").val()
         };
 
+
         userService
-            .updateUser(192, user)
+            .updateUser($userId, user)
             .then(findAllUsers);
     }
-    /*function success(response) {
-        if(response === null) {
-            alert('unable to update')
-        } else {
-            alert('success');
-        }
-    }*/
 
-    // delete user
+    // deletes a user
     function deleteUser(event) {
         var deleteBtn = $(event.currentTarget);
         var userId = deleteBtn
@@ -78,13 +77,12 @@
             .parent()
             .attr('id');
 
-        //console.log(userId);
         userService
             .deleteUser(userId)
             .then(findAllUsers);
     }
 
-    //render users
+    //renders the users
     function renderUsers(users) {
         tbody.empty();
         for(var i=0; i<users.length; i++) {
@@ -113,7 +111,7 @@
         return userService.findUserById(userId);
     }
 
-    // populate the form
+    // populates the form with values
     function renderUser(user) {
         $tbody=$(".webdev-form");
         $tbody.find("#usernameFld").val(user.username);
@@ -122,7 +120,7 @@
         $tbody.find("#roleFld").val(user.role);
 
     }
-   // on click of the pencil, populate the form
+   // on click of the pencil, finds the user by their userId
     function editUser(event) {
         $button= $(event.currentTarget);
         $userId=$button.parent().parent().parent().attr("id");

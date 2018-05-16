@@ -7,7 +7,6 @@
     var $roleFld;
     var $dobFld;
     var $updateBtn;
-   // var $logoutBtn;
     var userService = new UserServiceClient();
 
     function init() {
@@ -18,15 +17,11 @@
         $dobFld = $("#dobFld");
         $updateBtn = $("#updateBtn")
             .click(updateProfile);
-        //$logoutBtn = $("#logoutBtn")
-          //  .click(logoutUser);
         var link = window.location.search.substring(1);
         var pos = link.indexOf('=');
         if (pos > 0) {
-            //var key = link.substring(0, pos);
             var value = link.substring(pos + 1);
         }
-        //console.log(value);
         findUserByUsername(value);
     }
 
@@ -59,7 +54,6 @@
     }
 
     function renderUser(user) {
-       // console.log(user);
         $usernameFld.val(user.username);
         $phoneFld.val(user.phone);
         $emailFld.val(user.email);
