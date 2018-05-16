@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="profile.style.client.css" rel="stylesheet"/>
     <title>Profile Page</title>
     <script
             src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -15,9 +16,11 @@
 </head>
 <body><br>
 <div class="container-fluid">
-    <h1 id="title">Profile</h1><br>
+    <br>
 
     <form>
+        <fieldset class="scheduler-border">
+            <legend class="scheduler-border"><h1 id="title">Profile</h1></legend>
         <div class="form-group row">
             <label for="usernameFld" class="col-sm-2 col-form-label">Username</label>
             <div class="col-sm-10">
@@ -55,14 +58,26 @@
         </div>
 
         <br>
-        <button id="updateBtn"
-                type="button"
-                class="btn btn-success btn-block">Update</button>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <button id="updateBtn"
+                            type="button"
+                            class="btn btn-success wbdv-profileButton wbdv-button btn-block">Update</button>
+                </div>
+            </div>
 
-        <button id="logoutBtn"
-                type="button"
-                class="btn btn-block btn-danger"
-                onclick="window.location.href='/jquery/components/login/login.template.client.html'">Logout</button>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <button id="logoutBtn"
+                            type="button"
+                            class="btn btn-block btn-danger wbdv-dangerButton wbdv-dangerBtn"
+                            onclick="window.location.href='/jquery/components/login/login.template.client.html'">Logout</button>
+                </div>
+            </div>
+
+        </fieldset>
     </form>
 
 </div>

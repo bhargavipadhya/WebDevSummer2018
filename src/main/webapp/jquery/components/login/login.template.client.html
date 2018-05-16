@@ -16,13 +16,13 @@
 </head>
 <body><br>
 <div class="container-fluid">
-    <h1 id="title">Login</h1><br>
-
     <div class="alert alert-danger" id="alertLoginDanger" role="alert">
         Sorry! Could not log in to your account. Please try again later.
     </div>
 
     <form>
+        <fieldset class="scheduler-border">
+            <legend class="scheduler-border"><h1 id="title">Login</h1></legend>
         <div class="form-group row">
             <label for="usernameFld" class="col-sm-2 col-form-label">Username</label>
             <div class="col-sm-10">
@@ -35,21 +35,32 @@
                 <input type="password" class="form-control" id="passwordFld" placeholder="Password">
             </div>
         </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <button id="loginBtn"
+                        type="button"
+                        class="btn btn-primary wbdv-button wbdv-loginButton btn-block">Login</button>
+            </div>
+        </div>
 
-        <br>
-        <button id="loginBtn"
-                type="button"
-                class="btn btn-primary btn-block">Login</button>
-        <div>
-        <button id="forgotpwdBtn"
-                type="button"
-                class="btn btn-link"
-                onclick="window.location.href='/jquery/components/login/login/forgot-password.html'">Forgot Password?</button>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <button id="forgotpwdBtn"
+                            type="button"
+                            class="btn btn-link"
+                            onclick="window.location.href='/jquery/components/login/login/forgot-password.html'">Forgot Password?</button>
 
-        <button id="registerBtn"
-                type="button"
-                class="btn btn-link float-right"
-                onclick="window.location.href='/jquery/components/register/register.template.client.html'">Sign Up</button></div>
+                    <button id="registerBtn"
+                            type="button"
+                            class="btn btn-link float-right"
+                            onclick="window.location.href='/jquery/components/register/register.template.client.html'">
+                        Sign Up
+                    </button>
+                </div>
+            </div>
+        </fieldset>
     </form>
 
 </div>

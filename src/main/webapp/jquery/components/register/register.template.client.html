@@ -28,7 +28,6 @@
 </head>
 <body><br>
 <div class="container-fluid">
-    <h1 id="title">Sign Up</h1><br>
 
     <div class="alert alert-success" id="alertSuccess" role="alert">
         Account created successfully!
@@ -39,10 +38,11 @@
     </div>
 
     <form>
+        <fieldset class="scheduler-border">
+            <legend class="scheduler-border"><h1 id="title">Sign Up</h1></legend>
         <div class="form-group row">
             <label for="usernameFld" class="col-sm-2 col-form-label">Username</label>
             <div class="col-sm-10 input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                 <input type="text" class="form-control" required id="usernameFld" placeholder="Username">
             </div>
         </div>
@@ -61,14 +61,27 @@
         </div>
 
         <br>
-        <button id="registerBtn"
-                type="button"
-                class="btn btn-primary btn-block">Register</button>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <button id="registerBtn"
+                        type="button"
+                        class="btn btn-primary wbdv-button wbdv-regButton btn-block">
+                    <i class="fa-2x fa fa-check-square"></i>Register</button>
 
-        <button id="loginBtn"
-                type="button"
-                class="btn btn-link"
-                onclick="window.location.href='/jquery/components/login/login.template.client.html'">Login</button>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <button id="loginBtn"
+                        type="button"
+                        class="btn btn-link"
+                        onclick="window.location.href='/jquery/components/login/login.template.client.html'">Login</button>
+            </div>
+        </div>
+        </fieldset>
     </form>
 
 </div>
