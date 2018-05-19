@@ -1,17 +1,23 @@
 package com.example.mywebapp.model;
 import java.util.Date;
+import java.util.List;
 
 //import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
 public class Course {
-  @Id
+	
+	@OneToMany(mappedBy="course")
+    private List<Module> modules;
+	
+@Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)
   private int id;
   private String title;
@@ -55,4 +61,13 @@ public Date getModified() {
 public void setModified(Date modified) {
 	this.modified = modified;
 }
+
+public List<Module> getModules() {
+	return modules;
+}
+
+public void setModules(List<Module> modules) {
+	this.modules = modules;
+}
+
 }
