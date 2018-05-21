@@ -11,6 +11,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Course {
 	
@@ -23,9 +25,11 @@ public class Course {
   private String title;
   
   //@Column(name="DATE_CREATED")
+  @JsonFormat(pattern = "yyyy/MM/dd HH:mm:ss")
   @Temporal(TemporalType.TIMESTAMP)
   private Date created;
   
+  @JsonFormat(pattern = "yyyy/MM/dd HH:mm:ss")
   @Temporal(TemporalType.TIMESTAMP)
   private Date modified;
   
