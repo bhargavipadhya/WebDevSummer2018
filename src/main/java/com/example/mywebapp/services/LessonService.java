@@ -29,6 +29,10 @@ public class LessonService {
 	@Autowired
 	LessonRepository lessonRepository;
 	
+	@GetMapping("/api/lesson")
+	public Iterable<Lesson> findAllLessons() {
+		return lessonRepository.findAll(); 
+	}
 	
 	@GetMapping("/api/course/{courseId}/module/{moduleId}/lesson")
 	public List<Lesson> findAllLessonsForModule(
@@ -38,6 +42,15 @@ public class LessonService {
 	if(data.isPresent()) {
 		Module module = data.get();
 		return module.getLessons();
+	}
+	return null;
+}
+	@GetMapping("/api/lesson/{lessonId}")
+	public Lesson findLessonById(
+			@PathVariable("lessonId") int lessonId){
+	Optional<Lesson> data = lessonRepository.findById(lessonId);
+	if(data.isPresent()) {
+		return data.get();
 	}
 	return null;
 }
@@ -57,7 +70,7 @@ public class LessonService {
 	}
 	
 	@DeleteMapping("/api/lesson/{lessonId}")
-	public void deleteModule(@PathVariable("lessonId") int lessonId)
+	public void deleteLesson(@PathVariable("lessonId") int lessonId)
 	{
 		lessonRepository.deleteById(lessonId);
 	}

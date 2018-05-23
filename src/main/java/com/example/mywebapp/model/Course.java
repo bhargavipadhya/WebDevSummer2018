@@ -2,7 +2,6 @@ package com.example.mywebapp.model;
 import java.util.Date;
 import java.util.List;
 
-//import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,7 +23,7 @@ public class Course {
   private int id;
   private String title;
   
-  //@Column(name="DATE_CREATED")
+
   @JsonFormat(pattern = "yyyy/MM/dd HH:mm:ss")
   @Temporal(TemporalType.TIMESTAMP)
   private Date created;
