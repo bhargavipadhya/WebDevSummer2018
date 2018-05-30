@@ -20,6 +20,12 @@ public class Widget {
 	private String text;
 	private String widgetType;
 	private int size;
+	private String paraText;
+	private String listText;
+	private String listType;
+	private String linkURL;
+	private String imageURL;
+	private String linkText;
 	
 	@ManyToOne
 	@JsonIgnore
@@ -58,5 +64,42 @@ public class Widget {
 	}
 	public void setTopic(Topic topic) {
 		this.topic = topic;
+	}
+	
+	public String getParaText() {
+		return paraText;
+	}
+	public void setParaText(String paraText) {
+		this.paraText = paraText;
+	}
+	public String getListText() {
+		return listText;
+	}
+	public void setListText(String listText) {
+		this.listText = listText;
+	}
+	public String getListType() {
+		return listType;
+	}
+	public void setListType(String listType) {
+		this.listType = listType;
+	}
+	public String getLinkURL() {
+		return linkURL;
+	}
+	public void setLinkURL(String linkURL) {
+		this.linkURL = linkURL;
+	}
+	public String getImageURL() {
+		return imageURL;
+	}
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
+	}
+	public String getLinkText() {
+		return linkText;
+	}
+	public void setLinkText(String linkText) {
+		this.linkText = linkText;
 	}
 }

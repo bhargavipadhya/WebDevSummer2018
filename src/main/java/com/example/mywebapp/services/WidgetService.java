@@ -26,8 +26,19 @@ public class WidgetService {
 	@Autowired
 	TopicRepository topicRepository;
 	
+	@GetMapping("api/topic/{topicId}/widget")
+	public List<Widget> findWidgetByTopicId(@PathVariable("topicId") int topicId){
+		Optional<Topic> data = topicRepository.findById(topicId);
+		if(data.isPresent()) {
+			Topic topic = data.get();
+			List<Widget> widgetList= topic.getWidgets();
+			return widgetList;
+		}
+		return null;	
+	}
+	
 	@PostMapping("/api/topic/{topicId}/widget/save")
-	public void saveAllWidgets(@RequestBody List<Widget> widgets, @PathVariable("topicId") int topicId) {
+	public void saveWidgetForTopic(@RequestBody List<Widget> widgets, @PathVariable("topicId") int topicId) {
 		
 		Optional<Topic> data=topicRepository.findById(topicId);
 		if(data.isPresent()) {
@@ -50,17 +61,6 @@ public class WidgetService {
 	@GetMapping("/api/widget")
 	public List<Widget> findAllWidgets(){
 		return (List<Widget>) widgetRepository.findAll();
-	}
-	
-	@GetMapping("/api/topic/{topicId}/widget")
-	public List<Widget> findAllWidgetsForTopic(
-			@PathVariable("topicId") int topicId){
-	Optional<Topic> data = topicRepository.findById(topicId);
-	if(data.isPresent()) {
-		Topic topic = data.get();
-		return topic.getWidgets();
-	}
-	return null;
 	}
 	
 	@DeleteMapping("/api/widget/{widgetId}")
