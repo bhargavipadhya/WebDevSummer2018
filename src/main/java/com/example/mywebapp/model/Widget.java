@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Widget {
+public class Widget implements Comparable<Widget>{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
@@ -26,6 +26,8 @@ public class Widget {
 	private String linkURL;
 	private String imageURL;
 	private String linkText;
+	private String widgetNameText;
+	private int orderWidget;
 	
 	@ManyToOne
 	@JsonIgnore
@@ -101,5 +103,21 @@ public class Widget {
 	}
 	public void setLinkText(String linkText) {
 		this.linkText = linkText;
+	}
+	public String getWidgetNameText() {
+		return widgetNameText;
+	}
+	public void setWidgetNameText(String widgetNameText) {
+		this.widgetNameText = widgetNameText;
+	}
+	@Override
+	public int compareTo(Widget order) {
+		return this.getOrderWidget()-order.getOrderWidget();
+	}
+	public int getOrderWidget() {
+		return orderWidget;
+	}
+	public void setOrderWidget(int orderWidget) {
+		this.orderWidget = orderWidget;
 	}
 }

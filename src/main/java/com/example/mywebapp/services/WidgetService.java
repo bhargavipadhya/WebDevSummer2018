@@ -1,5 +1,6 @@
 package com.example.mywebapp.services;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,6 +33,7 @@ public class WidgetService {
 		if(data.isPresent()) {
 			Topic topic = data.get();
 			List<Widget> widgetList= topic.getWidgets();
+			Collections.sort(widgetList);
 			return widgetList;
 		}
 		return null;	
