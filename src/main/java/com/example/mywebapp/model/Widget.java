@@ -20,12 +20,12 @@ public class Widget implements Comparable<Widget>{
 	private String text;
 	private String widgetType;
 	private int size;
-	private String paraText;
-	private String listText;
+	//private String paraText;
+	//private String listText;
 	private String listType;
 	private String linkURL;
 	private String imageURL;
-	private String linkText;
+	//private String linkText;
 	private String widgetNameText;
 	private int orderWidget;
 	
@@ -68,18 +68,18 @@ public class Widget implements Comparable<Widget>{
 		this.topic = topic;
 	}
 	
-	public String getParaText() {
-		return paraText;
-	}
-	public void setParaText(String paraText) {
-		this.paraText = paraText;
-	}
-	public String getListText() {
-		return listText;
-	}
-	public void setListText(String listText) {
-		this.listText = listText;
-	}
+//	public String getParaText() {
+//		return paraText;
+//	}
+//	public void setParaText(String paraText) {
+//		this.paraText = paraText;
+//	}
+//	public String getListText() {
+//		return listText;
+//	}
+//	public void setListText(String listText) {
+//		this.listText = listText;
+//	}
 	public String getListType() {
 		return listType;
 	}
@@ -98,12 +98,12 @@ public class Widget implements Comparable<Widget>{
 	public void setImageURL(String imageURL) {
 		this.imageURL = imageURL;
 	}
-	public String getLinkText() {
-		return linkText;
-	}
-	public void setLinkText(String linkText) {
-		this.linkText = linkText;
-	}
+//	public String getLinkText() {
+//		return linkText;
+//	}
+//	public void setLinkText(String linkText) {
+//		this.linkText = linkText;
+//	}
 	public String getWidgetNameText() {
 		return widgetNameText;
 	}
