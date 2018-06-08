@@ -29,7 +29,7 @@ public class EssayService {
 		 if(data.isPresent()) {
 			 Exam exam = data.get();
 			 essayQn.setExam(exam);
-			 return 	essayRepository.save(essayQn);
+			 return essayRepository.save(essayQn);
 		 }
 		return null;
 	}

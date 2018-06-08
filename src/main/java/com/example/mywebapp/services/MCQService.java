@@ -23,6 +23,7 @@ public class MCQService {
 	@PostMapping("/api/exam/{examId}/choice")
 	public MultipleChoiceQuestion addQuestionByExamId(@PathVariable("examId") int eid,
 			@RequestBody MultipleChoiceQuestion mcQn) {
+		//System.out.println(eid);
 		Optional<Exam> data = examRepository.findById(eid);
 		 if(data.isPresent()) {
 			 Exam exam = data.get();

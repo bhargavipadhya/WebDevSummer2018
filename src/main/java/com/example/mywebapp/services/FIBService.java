@@ -28,7 +28,7 @@ public class FIBService {
 		 if(data.isPresent()) {
 			 Exam exam=data.get();
 			 fibQn.setExam(exam);
-			 return 	fibRepository.save(fibQn);
+			 return fibRepository.save(fibQn);
 		 }
 		return null;
 	}

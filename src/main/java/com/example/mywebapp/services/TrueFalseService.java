@@ -27,7 +27,7 @@ public class TrueFalseService {
 		 if(data.isPresent()) {
 			 Exam exam = data.get();
 			 tfQn.setExam(exam);
-			 return 	tfRepo.save(tfQn);
+			 return tfRepo.save(tfQn);
 		 }
 		return null;
 	}

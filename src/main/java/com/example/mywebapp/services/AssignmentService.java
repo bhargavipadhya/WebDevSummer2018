@@ -88,6 +88,7 @@ public class AssignmentService {
 			@PathVariable("assnId") int aid,
 			@RequestBody Assignment newAssn) {
 		Optional<Assignment> data = assnRepo.findById(aid);
+		System.out.println("hello");
 		if(data.isPresent()) {
 			Assignment assn = data.get();
 			assn.setTitle(newAssn.getTitle());
